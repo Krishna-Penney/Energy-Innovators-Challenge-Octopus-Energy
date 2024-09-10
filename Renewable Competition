@@ -1,0 +1,37 @@
+def electricity_consumption(electricity_amount_kwh):
+  joules_per_kwh = 3600000  # 1 kWh = 3600000 J
+  electricity_energy = electricity_amount_kwh * joules_per_kwh
+  return electricity_energy
+
+def water_consumption(water_usage_liters):
+  joules_per_liters_of_water = 4186 
+  temperature_rise_celsius = 40
+  water_energy = water_usage_liters * joules_per_liters_of_water * temperature_rise_celsius
+  return water_energy
+
+def gas_consumption(gas_usage_cubic_meters):
+  joules_per_cubic_meter_of_gas = 38.7e6  # Joules per cubic meter of gas (typical energy content of natural gas)
+  gas_energy = gas_usage_cubic_meters * joules_per_cubic_meter_of_gas
+  return gas_energy
+
+# Interface
+print("Welcome to our energy consumption calculator")
+
+# Input for electricity consumption
+electricity_amount_kwh = float(input("How much electricity does your household use (in kWh)? "))
+total_electricity = electricity_consumption(electricity_amount_kwh)
+print("Total electricity consumption of the house:", total_electricity, "Joules")
+
+# Input for water consumption
+water_usage_liters = float(input("How much water does your household use (in liters)? "))
+total_water = water_consumption(water_usage_liters)
+print("Total water consumption for water heating in the house:", total_water, "Joules")
+
+# Input for gas consumption
+gas_usage_cubic_meters = float(input("How much gas does your household use (in cubic meters)? "))
+total_gas = gas_consumption(gas_usage_cubic_meters)
+print("Total gas consumption for gas usage in the house:", total_gas, "Joules")
+
+# Total energy consumption
+total_energy = total_electricity + total_water + total_gas
+print("Total energy consumption of the house:", total_energy, "Joules")
